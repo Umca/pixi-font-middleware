@@ -1,0 +1,19 @@
+{
+  "name": "pixi-font-middlewear",
+  "version": "1.0.0",
+  "description": "pixi-font-middlewear",
+  "main": "dist/index.js",
+  "dependencies": {
+    "pixi.js": "^5.1.0"
+  },
+  "devDependencies": {
+    "fonts-loader": "^1.0.8"
+  },
+  "scripts": {
+    "build": "parcel src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
