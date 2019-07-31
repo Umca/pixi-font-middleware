@@ -13,21 +13,20 @@ class FontLoaderPlugin {
         }
     }
 
-    pre(res, next){
-        if(FontLoaderPlugin.checkExtension(res.extension)){
-            res._setFlag(PIXI.LoaderResource.STATUS_FLAGS.LOADING, true)
+    pre(res, next) {
+        if(fontsExtentions.includes(res.extension)) {
+            res._setFlag(LoaderResource.STATUS_FLAGS.LOADING, true)
 
-            FontLoaderPlugin.fontLoader
-            .load(FontLoaderPlugin.parse(res))
-            .then(e => {
-                console.log(e)
-                res.complete()
-                next()
-            })
-        } else {
-            next()
-        }
+            new FontsLoader()
+                .load(FontLoaderPlugin.parse(res))
+                .then(e => {
+                    res.complete()
+                    next()
+                })
+        } else next()
     }
+
 }
 
 export { FontLoaderPlugin }
+export default FontLoaderPlugin 
