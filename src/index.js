@@ -1,4 +1,4 @@
-export { FontLoaderPlugin } from './plugin'
+import { Loader } from '@pixi/loaders'
+import { FontLoaderPlugin } from './plugin'
 
-
-
+Loader.registerPlugin(new FontLoaderPlugin())

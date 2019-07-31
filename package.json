@@ -1,19 +1,41 @@
 {
   "name": "pixi-font-middlewear",
-  "version": "1.0.0",
-  "description": "pixi-font-middlewear",
-  "main": "dist/index.js",
+  "version": "1.0.1",
+  "description": "Middlewear for loading fonts using standart PIXI loader",
+  "main": "src/index.js",
+  "files": [
+    "src/**.js"
+  ],
+  "keywords": [
+    "pixi",
+    "font",
+    "loader"
+  ],
+  "author": "Olga Akinshina @Umca",
+  "license": "ISC",
+  "homepage": "https://github.com/Umca/pixi-font-middlewear#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Umca/pixi-font-middlewear.git"
+  },
   "dependencies": {
-    "pixi.js": "^5.1.0"
+    "@pixi/loaders": "^5.1.0",
+    "fonts-loader": "^1.0.9"
   },
   "devDependencies": {
-    "fonts-loader": "^1.0.8"
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-static-files-copy": "^2.2.0",
+    "pixi.js": "^5.1.0",
+    "rimraf": "^2.6.3"
   },
   "scripts": {
-    "build": "parcel src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel example/index.html",
+    "build": "rimraf -r dist && parcel src/index.js",
+    "publish:patch": "npm version patch && npm publish",
+    "publish:minor": "npm version minor && npm publish",
+    "publish:major": "npm version major && npm publish"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "staticFiles": {
+    "staticPath": "example/assets"
+  }
 }

@@ -1,36 +1,32 @@
-import * as PIXI from 'pixi.js'
+import { LoaderResource } from '@pixi/loaders'
 import { FontsLoader } from 'fonts-loader'
 
-const fontLoader = new FontsLoader()
+const fontsExtentions = ['woff', 'woff2', 'ttf', 'otf', 'eot']
 
 class FontLoaderPlugin {
-    constructor(){}
 
-    static get fontLoader(){ return fontLoader }
-
-    static checkExtension(ext){
-        return ['woff', 'woff2', 'ttf', 'otf', 'eot'].includes(ext)
-    }
-
-    static parse(res){
-        return {descriptor: res.metadata, name: res.name, source: res.url}
-    }
-
-    pre(res, next){
-        if(FontLoaderPlugin.checkExtension(res.extension)){
-            res._setFlag(PIXI.LoaderResource.STATUS_FLAGS.LOADING, true)
-
-            FontLoaderPlugin.fontLoader
-            .load(FontLoaderPlugin.parse(res))
-            .then(e => {
-                console.log(e)
-                res.complete()
-                next()
-            })
-        } else {
-            next()
+    static parse({ name, url, metadata }) {
+        return {
+            name: metadata.family || name,
+            source: url,
+            descriptor: metadata
         }
     }
+
+    pre(res, next) {
+        if(fontsExtentions.includes(res.extension)) {
+            res._setFlag(LoaderResource.STATUS_FLAGS.LOADING, true)
+
+            new FontsLoader()
+                .load(FontLoaderPlugin.parse(res))
+                .then(e => {
+                    res.complete()
+                    next()
+                })
+        } else next()
+    }
+
 }
 
 export { FontLoaderPlugin }
+export default FontLoaderPlugin 
