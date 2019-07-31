@@ -1,7 +1,7 @@
 import { LoaderResource } from '@pixi/loaders'
 import { FontsLoader } from 'fonts-loader'
 
-const fontLoader = new FontsLoader()
+const fontsExtentions = ['woff', 'woff2', 'ttf', 'otf', 'eot']
 
 class FontLoaderPlugin {
     constructor(){}
