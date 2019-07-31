@@ -1,8 +1,23 @@
 {
   "name": "pixi-font-middlewear",
   "version": "1.0.0",
-  "description": "pixi-font-middlewear",
-  "main": "dist/index.js",
+  "description": "Middlewear for loading fonts using standart PIXI loader",
+  "main": "src/index.js",
+  "files": [
+    "src/**.js"
+  ],
+  "keywords": [
+    "pixi",
+    "font",
+    "loader"
+  ],
+  "author": "Olga Akinshina @Umca",
+  "license": "ISC",
+  "homepage": "https://github.com/Umca/pixi-font-middlewear#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Umca/pixi-font-middlewear.git"
+  },
   "dependencies": {
     "pixi.js": "^5.1.0"
   },
