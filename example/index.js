@@ -30,13 +30,16 @@ app.loader
 function writeText() {
     const basicText1 = new Text(
         'Basic text in pixi',
-        { fontFamily: 'AlegreyaSans-Bold' }
+        { fontFamily: 'AlegreyaSans',
+          fontWeight: 300
+        } 
     )
     basicText1.position.set(50, 100)
 
     const basicText2 = new Text(
         'Basic text in pixi',
-        { fontFamily: 'AlegreyaSans-Light' }
+        { fontFamily: 'AlegreyaSans',
+          fontWeight: 800 }
     )
     basicText2.position.set(50, 200)
 
