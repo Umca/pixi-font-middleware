@@ -33,7 +33,7 @@
     "publish:minor": "npm version minor && npm publish",
     "publish:major": "npm version major && npm publish"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "staticFiles": {
+    "staticPath": "example/assets"
+  }
 }
