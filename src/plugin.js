@@ -4,9 +4,8 @@ import { FontsLoader } from 'fonts-loader'
 const fontsExtentions = ['woff', 'woff2', 'ttf', 'otf', 'eot']
 
 class FontLoaderPlugin {
-    constructor(){}
 
-    static get fontLoader(){ return fontLoader }
+    static parse({ name, url, metadata }) {
 
     static checkExtension(ext){
         return ['woff', 'woff2', 'ttf', 'otf', 'eot'].includes(ext)
