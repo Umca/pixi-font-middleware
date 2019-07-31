@@ -7,7 +7,7 @@ class FontLoaderPlugin {
 
     static parse({ name, url, metadata }) {
         return {
-            name,
+            name: metadata.family || name,
             source: url,
             descriptor: metadata
         }
