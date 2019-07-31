@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js'
+import { LoaderResource } from '@pixi/loaders'
 import { FontsLoader } from 'fonts-loader'
 
 const fontLoader = new FontsLoader()
