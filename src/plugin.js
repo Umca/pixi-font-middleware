@@ -6,13 +6,11 @@ const fontsExtentions = ['woff', 'woff2', 'ttf', 'otf', 'eot']
 class FontLoaderPlugin {
 
     static parse({ name, url, metadata }) {
-
-    static checkExtension(ext){
-        return ['woff', 'woff2', 'ttf', 'otf', 'eot'].includes(ext)
-    }
-
-    static parse(res){
-        return {descriptor: res.metadata, name: res.name, source: res.url}
+        return {
+            name,
+            source: url,
+            descriptor: metadata
+        }
     }
 
     pre(res, next){
