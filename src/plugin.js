@@ -16,10 +16,13 @@ class FontLoaderPlugin {
     pre(res, next) {
         if(fontsExtentions.includes(res.extension)) {
             res._setFlag(LoaderResource.STATUS_FLAGS.LOADING, true)
-
-            new FontsLoader()
-                .load(FontLoaderPlugin.parse(res))
+            
+            new FontsLoader(FontLoaderPlugin.parse(res), {
+                silent: false,
+                error: true
+            })
                 .then(e => {
+                    console.log(e)
                     res.complete()
                     next()
                 })
